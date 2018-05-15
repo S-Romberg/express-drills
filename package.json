@@ -12,10 +12,6 @@
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.4",
-    "dotenv": "^5.0.1",
     "express": "^4.16.3"
-  },
-  "engines": {
-    "node": "8.9.4"
   }
 }
