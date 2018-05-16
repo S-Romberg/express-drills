@@ -46,17 +46,17 @@ app.get('/', (req, res) => {
 })
 
 app.get('/:id', ((req, res) => {
-    console.log(req.params['id'])
-    var record = findById(cohorts, req.params['id'])
+    console.log(req.params.id)
+    var record = findById(cohorts, req.params.id)
     if(!record){
-        response.status = 404;
-        response.json({
+        res.status = 404;
+        res.json({
             error: {
                 message: 'No record found!'
             }
         })
     }
-    response.json({data: record})
+    res.json({data: record})
 }))
 
 app.listen(port)
