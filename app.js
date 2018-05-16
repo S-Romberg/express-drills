@@ -1,6 +1,5 @@
 const express = require('express')
 const cors = require('cors')
-const app = express()
 var port = process.env.PORT || 3000
 
 var cohorts = [{
@@ -37,7 +36,7 @@ function findById(data, id){
     }
     return null
 }
-
+const app = express()
 app.use(cors())
 
 app.get('/', (req, res) => {
@@ -47,16 +46,17 @@ app.get('/', (req, res) => {
 })
 
 app.get('/:id', ((req, res) => {
-    var record = findById(cohorts, request.params.id)
+    console.log(req.params.id)
+    var record = findById(cohorts, req.params.id)
     if(!record){
-        response.status = 404;
-        response.json({
+        res.status = 404;
+        res.json({
             error: {
                 message: 'No record found!'
             }
         })
     }
-    response.json({data: record})
+    res.json({data: record})
 }))
 
 app.listen(port)
